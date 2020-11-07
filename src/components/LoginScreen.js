@@ -1,25 +1,23 @@
-import React, {useState} from 'react'
+import React, {useRef}from 'react'
+import { useAuth } from '../contexts/AuthContext';
 
 function LoginScreen() {
-    const [count, setCount] = useState("umut");
-    const increaseCount = () => {
-        if(count === "umut"){
-            setCount("göksu");
-        }
-        else if(count === "göksu"){
-            setCount("sanem");
-        }
-        else if(count === "sanem"){
-            setCount("mert");
-        }
-        else{
-            setCount("umut");
-        }
+
+    const { login } = useAuth();
+    const input1Ref = useRef();
+    const input2Ref = useRef();
+
+    const getLogin = () => {
+        login(input1Ref.current.value, input2Ref.current.value);
     }
+
     return (
         <div>
-            {count}
-            <button onClick={increaseCount}>Arttır</button>
+            <div>Kullanıcı Adı</div>
+            <input ref={input1Ref} />
+            <div>Şifre</div>
+            <input ref={input2Ref} />
+            <button onClick={getLogin}>Giriş Yap</button>
         </div>
     )
 }
