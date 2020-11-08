@@ -13,6 +13,10 @@ export const AuthProvider = ({ children }) => {
             if(pass === password){
                 setUser(username);
                 localforage.setItem("lastUser", username);
+                return;
+            }
+            else{
+                alert("Kullanıcı adı veya şifre hatalı !!");
             }
         })
     }

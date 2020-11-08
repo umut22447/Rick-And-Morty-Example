@@ -1,18 +1,15 @@
 import React, { useRef } from 'react'
 import { useAuth } from '../contexts/AuthContext';
+import { Link } from 'react-router-dom'
 
 function LoginScreen() {
 
-    const { login, register } = useAuth();
+    const { login } = useAuth();
     const input1Ref = useRef();
     const input2Ref = useRef();
 
     const getLogin = () => {
         login(input1Ref.current.value, input2Ref.current.value);
-    }
-
-    const getRegister = () => {
-        register(input1Ref.current.value, input2Ref.current.value);
     }
 
     const rootDivStyle = {
@@ -32,7 +29,9 @@ function LoginScreen() {
                 <input ref={input2Ref} type="password" />
                 <br />
                 <button onClick={getLogin}>Giriş Yap</button>
-                <button onClick={getRegister}>Kayıt Ol</button>
+                <Link to="/register">
+                    <button>Kayıt Ol</button>
+                </Link>
             </div>
         </div>
     )
