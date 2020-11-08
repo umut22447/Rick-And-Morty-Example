@@ -8,7 +8,7 @@ export default function RickAndMortyList() {
 
     useEffect(() => {
         getCharacters().then(setCharacterList);
-    }, [characterList])
+    }, [])
 
     return (
         <div style={{display: "flex", flexWrap: "wrap"}}>
