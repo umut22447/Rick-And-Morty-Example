@@ -28,6 +28,5 @@ export default function ListItem(props) {
                 </div>
             </div>
         </Link>
-
     )
 }

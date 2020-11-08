@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { getCharacterById } from '../api'
 
 export default function CharacterDetailsPage() {
@@ -16,6 +16,9 @@ export default function CharacterDetailsPage() {
             <img src={characterDetails.image} alt=""/>
             <br />
             ID = {characterDetails.id} , NAME = {characterDetails.name} , STATUS = {characterDetails.status} , GENDER = {characterDetails.gender}
+            <Link to="/">
+                <button>Listeye Geri Dön</button>
+            </Link>
         </div>
     )
 }
