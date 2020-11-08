@@ -13,7 +13,7 @@ export default function RickAndMortyList() {
     return (
         <div style={{display: "flex", flexWrap: "wrap"}}>
             {characterList.map( character => {
-                return <ListItem name={character.name} image={character.image} status={character.status} />
+                return <ListItem name={character.name} image={character.image} status={character.status} id={character.id} />
             })}
         </div>
     )

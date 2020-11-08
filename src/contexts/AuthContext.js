@@ -4,7 +4,6 @@ import React, {
 import localforage from 'localforage'
 
 const AuthContext = createContext({});
-export const api = {};
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
