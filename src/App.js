@@ -6,7 +6,11 @@ import CharacterDetailsPage from './components/CharacterDetailsPage'
 import { useAuth } from './contexts/AuthContext';
 
 function App() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+
+  const getLogout = () => {
+    logout();
+  }
 
   return (
     <Router>
@@ -17,6 +21,7 @@ function App() {
             {user === null ? <LoginScreen /> : <RickAndMortyList />}
           </Route>
         </Switch>
+        {user !== null ? <button onClick={getLogout}>Çıkış Yap</button> : null}
       </div>
     </Router>
 

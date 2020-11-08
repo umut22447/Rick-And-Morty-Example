@@ -3,12 +3,16 @@ import { useAuth } from '../contexts/AuthContext';
 
 function LoginScreen() {
 
-    const { login } = useAuth();
+    const { login, register } = useAuth();
     const input1Ref = useRef();
     const input2Ref = useRef();
 
     const getLogin = () => {
         login(input1Ref.current.value, input2Ref.current.value);
+    }
+
+    const getRegister = () => {
+        register(input1Ref.current.value, input2Ref.current.value);
     }
 
     const rootDivStyle = {
@@ -28,6 +32,7 @@ function LoginScreen() {
                 <input ref={input2Ref} type="password" />
                 <br />
                 <button onClick={getLogin}>Giriş Yap</button>
+                <button onClick={getRegister}>Kayıt Ol</button>
             </div>
         </div>
     )
