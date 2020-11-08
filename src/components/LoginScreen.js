@@ -1,4 +1,4 @@
-import React, {useRef}from 'react'
+import React, { useRef } from 'react'
 import { useAuth } from '../contexts/AuthContext';
 
 function LoginScreen() {
@@ -11,13 +11,24 @@ function LoginScreen() {
         login(input1Ref.current.value, input2Ref.current.value);
     }
 
+    const rootDivStyle = {
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+    }
+
     return (
-        <div>
-            <div>Kullanıcı Adı</div>
-            <input ref={input1Ref} />
-            <div>Şifre</div>
-            <input ref={input2Ref} />
-            <button onClick={getLogin}>Giriş Yap</button>
+        <div style={rootDivStyle} >
+            <div>
+                <div>Kullanıcı Adı</div>
+                <input ref={input1Ref} />
+                <div>Şifre</div>
+                <input ref={input2Ref} type="password" />
+                <br />
+                <button onClick={getLogin}>Giriş Yap</button>
+            </div>
         </div>
     )
 }
