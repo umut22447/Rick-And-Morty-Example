@@ -20,18 +20,31 @@ function LoginScreen() {
         justifyContent: "center"
     }
 
+    const insideDivStyle = {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column"
+    }
+
     return (
         <div style={rootDivStyle} >
             <div>
-                <div>Kullanıcı Adı</div>
-                <input ref={input1Ref} />
-                <div>Şifre</div>
-                <input ref={input2Ref} type="password" />
-                <br />
-                <button onClick={getLogin}>Giriş Yap</button>
-                <Link to="/register">
-                    <button>Kayıt Ol</button>
-                </Link>
+                <h1>Rick And Morty Login Page</h1>
+                <div style={insideDivStyle}>
+                    <div>Kullanıcı Adı</div>
+                    <input ref={input1Ref} />
+                    <div>Şifre</div>
+                    <input ref={input2Ref} type="password" />
+                    <br />
+                    <div>
+                        <button onClick={getLogin}>Giriş Yap</button>
+                        <Link to="/register">
+                            <button>Kayıt Ol</button>
+                        </Link>
+                    </div>
+                </div>
+
             </div>
         </div>
     )
