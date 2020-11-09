@@ -1,19 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import ListItem from './ListItem'
-import {getCharacters} from '../api'
+import {useList} from '../contexts/ListContext'
 
 export default function RickAndMortyList() {
 
-    const [characterList, setCharacterList] = useState([]);
-
-    useEffect(() => {
-        getCharacters().then(setCharacterList);
-    }, [])
+    const {characterList} = useList();
 
     return (
         <div style={{display: "flex", flexWrap: "wrap"}}>
-            {characterList.map( character => {
-                return <ListItem name={character.name} image={character.image} status={character.status} id={character.id} />
+            {characterList.map( (character, index) => {
+                return <ListItem name={character.name} image={character.image} status={character.status} id={character.id} index={index} />
             })}
         </div>
     )

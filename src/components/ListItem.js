@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useList } from '../contexts/ListContext'
 
 export default function ListItem(props) {
+
+    const { deleteListItem } = useList();
 
     const listStyle = {
         display: "flex",
@@ -16,17 +19,26 @@ export default function ListItem(props) {
         height: 300
     };
 
+    const deleteItem = () => {
+        deleteListItem(props.index);
+    }
+
     return (
-        <Link to={`/character/${props.id}`}>
-            <div style={listStyle}>
-                <div>
-                    <img style={imageStyle} alt="" src={props.image} />
+        <div>
+            <Link to={`/character/${props.id}`}>
+                <div style={listStyle}>
+                    <div>
+                        <img style={imageStyle} alt="" src={props.image} />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", }}>
+                        <div>{props.name}</div>
+                        <div>{props.status}</div>
+                    </div>
+
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", }}>
-                    <div>{props.name}</div>
-                    <div>{props.status}</div>
-                </div>
-            </div>
-        </Link>
+            </Link>
+            <button onClick={deleteItem}>Remove List Item</button>
+        </div>
+
     )
 }
